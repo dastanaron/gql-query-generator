@@ -1,6 +1,4 @@
-
-
-export default class QueryBuilder {
+class QueryBuilder {
 
     constructor(base, filter, select)
     {
@@ -103,35 +101,6 @@ export default class QueryBuilder {
         return string;
     }
 
-
-
-    /*objectJoin(glue, object)
-    {
-        let string = '';
-
-        for (let key in object) {
-            if(typeof(object[key]) === 'object') {
-                for (let subkey in object[key]) {
-                    string += subkey + "{" +this.objectJoin(object[key][subkey], glue) + "}";
-                    console.log(typeof(object[key][subkey]));
-                }
-            }
-            else if(Array.isArray(object[key])) {
-                for (let arrayKey in object[key]) {
-                  console.log(object[key])
-                }
-                //string += object[key].join(' ');
-            }
-            else {
-                //console.log(key + '------' + object[key])
-                string += object[key] + glue;
-            }
-        }
-
-        string += '';
-
-        return string;
-    }*/
-
-
 }
+
+module.exports = QueryBuilder;
