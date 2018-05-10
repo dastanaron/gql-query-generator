@@ -80,4 +80,4 @@ node example.js
 
 example to RunKit
 
-[https://runkit.com/dastanaron/runkit-npm-js-graphql-query-lib](click here to go worked example)
+[click here to go worked example](https://runkit.com/dastanaron/runkit-npm-js-graphql-query-lib)
