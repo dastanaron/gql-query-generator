@@ -77,3 +77,7 @@ See example.js
 ```bash
 node example.js
 ```
+
+example to RunKit
+
+[https://runkit.com/dastanaron/runkit-npm-js-graphql-query-lib](click here to go worked example)
