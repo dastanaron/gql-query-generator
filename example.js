@@ -1,4 +1,4 @@
-const QueryBuilder  = require('./QueryBuilder.js');
+const QueryBuilder = require('./dist/index.js').default;
 
 
 let filter = {
