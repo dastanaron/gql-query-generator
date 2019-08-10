@@ -1,6 +1,6 @@
 {
   "name": "js-graphql-query-lib",
-  "version": "0.0.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dastanaron/js-graphql-query-builder.git"
