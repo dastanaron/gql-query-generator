@@ -1,4 +1,4 @@
-class QueryBuilder {
+export class QueryBuilder {
 
     constructor(base, filter, select)
     {
@@ -103,4 +103,4 @@ class QueryBuilder {
 
 }
 
-module.exports = QueryBuilder;
+export default QueryBuilder;
