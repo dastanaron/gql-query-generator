@@ -1,10 +1,15 @@
 export class QueryBuilder {
+    base: any;
+    filterObject: any;
+    selectObject: any;
+    queryString: any;
 
-    constructor(base, filter, select)
+    constructor(base: any, filter: any, select: any)
     {
         this.base = base;
         this.filterObject = filter;
         this.selectObject = select;
+        this.queryString = '';
         this.buildQuery();
     }
 
@@ -57,11 +62,12 @@ export class QueryBuilder {
         return string;
     }
 
-    elementType(element)
+    elementType(element: any)
     {
         switch(typeof (element)) {
             case 'string':
                 return '"'+element+'"';
+            // @ts-ignore
             case 'array':
                 return element.loin('","');
             default:
@@ -81,7 +87,7 @@ export class QueryBuilder {
     }
 
 
-    recurse(object) {
+    recurse(object: any) {
         let string = '';
         for (let key in object) {
             if(typeof (object[key]) === 'object') {
