@@ -11,12 +11,12 @@ npm install js-graphql-query-lib
 Into your project added:
 
 ```js
-import QueryBuilder from 'js-graphql-query-lib/QueryBuilder';
+import QueryBuilder from 'js-graphql-query-lib';
 ```
 or
 
 ```js
-const QueryBuilder  = require('js-graphql-query-lib/QueryBuilder');
+const QueryBuilder  = require('js-graphql-query-lib').default;
 ```
 
 Params
@@ -35,7 +35,7 @@ Example
 -----------------
 
 ```js
-import QueryBuilder from 'js-graphql-query-lib/QueryBuilder';
+import QueryBuilder from 'js-graphql-query-lib';
 
 let filter = {
     lang: 'en',
