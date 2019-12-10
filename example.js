@@ -1,4 +1,4 @@
-const QueryBuilder = require('./dist/index.js').default;
+const QueryBuilder = require('./dist/GraphQLBuilder.js').default;
 
 
 let filter = {
@@ -26,4 +26,4 @@ let select = [
 
 let QueryObject = new QueryBuilder('User', filter, select);
 
-console.log(QueryObject.query);
+console.log(QueryObject.getQuery());

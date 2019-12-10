@@ -1,29 +1,44 @@
-export class QueryBuilder {
-    base: any;
-    filterObject: any;
-    selectObject: any;
-    queryString: any;
+export interface FilterInterface {
+    [key: string]: any,
+}
 
-    constructor(base: any, filter: any, select: any)
+/**
+ * Class GraphQLBuilder
+ */
+export default class GraphQLBuilder {
+    base: string;
+    filterObject: FilterInterface;
+    selectObject: any[];
+    builtQuery: string;
+
+    /**
+     * @param base
+     * @param filter
+     * @param select
+     */
+    constructor(base: string, filter: FilterInterface, select: any[])
     {
         this.base = base;
         this.filterObject = filter;
         this.selectObject = select;
-        this.queryString = '';
+        this.builtQuery = '';
         this.buildQuery();
     }
 
-    buildQuery()
+    /**
+     * @return string
+     */
+    public getQuery()
     {
-        this.queryString =  '{'+this.base + this.filter() + this.select() + '}';
+        return this.builtQuery;
     }
 
-    get query()
+    private buildQuery()
     {
-        return this.queryString;
+        this.builtQuery =  '{'+this.base + this.filter() + this.select() + '}';
     }
 
-    filter()
+    private filter()
     {
         let string = '(';
         let totalIteration = 1;
@@ -62,7 +77,7 @@ export class QueryBuilder {
         return string;
     }
 
-    elementType(element: any)
+    private elementType(element: any)
     {
         switch(typeof (element)) {
             case 'string':
@@ -75,7 +90,7 @@ export class QueryBuilder {
         }
     }
 
-    select()
+    private select()
     {
         let string = '{';
         string += this.recurse(this.selectObject);
@@ -86,14 +101,13 @@ export class QueryBuilder {
 
     }
 
-
-    recurse(object: any) {
+    private  recurse(object: any) {
         let string = '';
         for (let key in object) {
             if(typeof (object[key]) === 'object') {
 
                 for(let sub in object[key]) {
-                   string += sub + '{'+this.recurse(object[key][sub])+'} ';
+                    string += sub + '{'+this.recurse(object[key][sub])+'} ';
                 }
 
             }
@@ -106,7 +120,4 @@ export class QueryBuilder {
         }
         return string;
     }
-
 }
-
-export default QueryBuilder;

@@ -3,20 +3,34 @@ GraphQl Query Builder
 
 This package is a class that allows you to compose a `GraphQL` query from a set of arrays and objects of any nested filter or query body.
 
-Install
+Build
 -------------------------
 
-npm install js-graphql-query-lib
+Clone this repository
 
-Into your project added:
-
-```js
-import QueryBuilder from 'js-graphql-query-lib';
+```bash
+git clone git@github.com:dastanaron/js-graphql-query-builder.git
 ```
-or
+Go to folder
 
-```js
-const QueryBuilder  = require('js-graphql-query-lib').default;
+```bash
+cd js-graphql-query-builder
+```
+and run command
+
+```bash
+yarn install
+yarn run build
+```
+
+You can also `npm` for build and install ependencies
+
+Install
+-----------------------
+
+You can install old version with npm
+```bash
+npm install js-graphql-query-lib
 ```
 
 Params
@@ -35,12 +49,13 @@ Example
 -----------------
 
 ```js
-import QueryBuilder from 'js-graphql-query-lib';
+const QueryBuilder = require('./dist/GraphQLBuilder.js').default;
+
 
 let filter = {
     lang: 'en',
     id: 755,
-    
+
     DateOfBirth: ["2018-04-23 00:00:00", "2018-04-23 23:59:59"],
     favorites: true,
 };
@@ -57,13 +72,12 @@ let select = [
             'seria', 'number'
         ]
     }
-,
+    ,
 ];
 
 let QueryObject = new QueryBuilder('User', filter, select);
 
-console.log(QueryObject.query);
-
+console.log(QueryObject.getQuery());
 ```
 
 output:
