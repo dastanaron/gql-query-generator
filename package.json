@@ -9,7 +9,6 @@
     "url": "https://github.com/dastanaron/js-graphql-query-builder/issues"
   },
   "homepage": "https://github.com/dastanaron/js-graphql-query-builder/",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "keywords": [
     "graphql",
     "gql",

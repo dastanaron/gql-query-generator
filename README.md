@@ -28,6 +28,16 @@ You can also `npm` for build and install ependencies
 Install
 -----------------------
 
+```bash
+npm i gql-query-generator
+```
+
+or
+
+```bash
+yarn add gql-query-generator
+```
+
 You can install old version with npm
 ```bash
 npm install js-graphql-query-lib
