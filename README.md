@@ -1,4 +1,4 @@
-GraphQl Query Builder
+gql-query-generator
 =========================
 
 This package is a class that allows you to compose a `GraphQL` query from a set of arrays and objects of any nested filter or query body.
@@ -9,7 +9,7 @@ Build
 Clone this repository
 
 ```bash
-git clone git@github.com:dastanaron/js-graphql-query-builder.git
+git clone git@github.com:dastanaron/gql-query-generator.git
 ```
 Go to folder
 
