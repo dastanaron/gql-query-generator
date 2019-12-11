@@ -25,20 +25,17 @@ export default class GraphQLBuilder {
         this.buildQuery();
     }
 
-    /**
-     * @return string
-     */
-    public getQuery()
+    public getQuery(): string
     {
         return this.builtQuery;
     }
 
-    private buildQuery()
+    private buildQuery(): void
     {
         this.builtQuery =  '{'+this.base + this.filter() + this.select() + '}';
     }
 
-    private filter()
+    private filter(): string
     {
         let string = '(';
         let totalIteration = 1;
@@ -64,7 +61,7 @@ export default class GraphQLBuilder {
                 string += ']';
             }
             else {
-                string += key+': '+this.elementType(this.filterObject[key]);
+                string += key+': '+this.getElementByType(this.filterObject[key]);
             }
 
             if(totalCount !== totalIteration) {
@@ -77,31 +74,30 @@ export default class GraphQLBuilder {
         return string;
     }
 
-    private elementType(element: any)
+    private getElementByType (element: any): any
     {
+        console.log(typeof (element));
         switch(typeof (element)) {
             case 'string':
                 return '"'+element+'"';
             // @ts-ignore
             case 'array':
-                return element.loin('","');
+                return element.join('","');
             default:
                 return element;
         }
     }
 
-    private select()
+    private select(): string
     {
         let string = '{';
         string += this.recurse(this.selectObject);
         string += '}';
         return string;
-
-        //console.log(this.recurse(this.selectObject));
-
     }
 
-    private  recurse(object: any) {
+    private  recurse(object: any): string
+    {
         let string = '';
         for (let key in object) {
             if(typeof (object[key]) === 'object') {
